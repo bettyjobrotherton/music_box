@@ -23,13 +23,13 @@
             </div>
         </div>
         <div class="col-md-6">
-          <div>
+          <div id='album-form'>
             <p>Add an album to our list:</p>
-            <p>Album Title: <input type="text" ng-model='newAlbumTitle' placeholder='Album Title'></p>
-            <p>Artist: <input type="text" ng-model='newAlbumArtist' placeholder='Artist'></p>
-            <p>Release Date: <input type="date" ng-model='newReleaseDate' placeholder="Release Date"></p>            
-            <p>Is the album good? <input type="radio" ng-model='newIsGood' value='true'>Yes <input type="radio" ng-model='newIsGood' value='false'> No</p>
-            <button ng-click="createAlbum(newAlbumTitle, newAlbumArtist, newReleaseDate, newIsGood)" class='btn'>Enter</button>
+            <p>Album Title: <input type="text" ng-model='newAlbum.title' placeholder='Album Title'></p>
+            <p>Artist: <input type="text" ng-model='newAlbum.artist' placeholder='Artist'></p>
+            <p>Release Date: <input type="date" ng-model='newAlbum.releaseDate' placeholder="Release Date"></p>
+            <p>Is the album good? <input type="radio" ng-model='newAlbum.isGood' value='true'>Yes <input type="radio" ng-model='newAlbum.isGood' value='false'> No</p>
+            <button ng-click="createAlbum(newAlbum)" class='btn'>Add</button>
           </div>
         </div>
       </div>

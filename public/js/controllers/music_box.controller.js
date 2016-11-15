@@ -7,6 +7,7 @@
 
   function AlbumController($scope, AlbumService){
     $scope.albums = AlbumService.get();
+    $scope.createAlbum = createAlbum;
 
     $scope.$watch(function(){
       return AlbumService.get();
@@ -14,6 +15,10 @@
       $scope.albums = AlbumService.get();
     });
 
+    function createAlbum(newAlbum){
+      AlbumService.create(newAlbum);
+      $scope.newAlbum = [];
+    }
 
   }
 

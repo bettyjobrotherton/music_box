@@ -9,6 +9,7 @@
     init();
 
     var albums = [];
+    var selectedAlbum;
 
     return {
       get: getAllAlbums,
@@ -20,8 +21,8 @@
 
     function init(){
       $http.get('/albums')
-           .then(function(response){
-             albums = response.data.albums;
+           .then(function(res){
+             albums = res.data.albums;
            })
            .catch(function(err){
              console.log(err);
@@ -32,8 +33,24 @@
       return albums;
     }
 
-    function getByID(index, album){}
-    function create(newAlbum){}
+    function getByID(index, album){
+      $http.get('/albums/' + album._id)
+           .then(function(res){
+            selectedAlbum = res.data.albums;
+           })
+           .catch(function(err){
+             console.log(err);
+           });
+    }
+    function create(newAlbum){
+      $http.post('/albums', newAlbum)
+           .then(function(res){
+             albums.push(newAlbum);
+           })
+           .catch(function(err){
+             console.log(err);
+           });
+    }
     function updateOne(index, updatedAlbum){}
     function deleteOne(index, deletedAlbum){}
 
