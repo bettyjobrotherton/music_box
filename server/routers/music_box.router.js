@@ -12,10 +12,11 @@ router.get('/albums', function(req, res){
       res.status(500).json({
         err: err
       });
+    } else {
+      res.status(200).json({
+        albums: foundMusic
+      });
     }
-    res.status(200).json({
-      albums: foundMusic
-    });
   });
 });
 router.get('/albums/:id', function(req, res){
@@ -24,10 +25,11 @@ router.get('/albums/:id', function(req, res){
       res.status(500).json({
         err: err
       });
+    } else {
+      res.status(200).json({
+        album: foundMusic
+      });
     }
-    res.status(200).json({
-      album: foundMusic
-    });
   });
 });
 
@@ -38,10 +40,11 @@ router.post('/albums', function(req, res){
       res.status(500).json({
         err: err
       });
+    } else {
+      res.status(200).json({
+        msg: 'New album successfully created!'
+      });
     }
-    res.status(200).json({
-      msg: 'New album successfully created!'
-    });
   });
 });
 
@@ -51,10 +54,11 @@ router.put('/albums/:id', function(req, res){
       res.status(500).json({
         err: err
       });
+    } else {
+      res.status(200).json({
+        msg: 'Album has been updated.'
+      });
     }
-    res.status(200).json({
-      msg: 'Album has been updated.'
-    });
   });
 });
 
@@ -64,10 +68,11 @@ router.delete('/albums/:id', function(req, res){
       res.status(500).json({
         err: err
       });
+    } else {
+      res.status(200).json({
+        msg: 'The following album has been deleted:  ' + deletedMusic
+      });
     }
-    res.status(200).json({
-      msg: 'The following album has been deleted:  ' + deletedMusic
-    });
   });
 });
 
