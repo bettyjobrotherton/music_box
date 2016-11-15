@@ -1,11 +1,11 @@
 (function() {
 
-  angular.module('musicBox')
-         .factory('albumService', albumService);
+  angular.module('music-box')
+         .factory('AlbumService', AlbumService);
 
-  albumService.$inject = ['$http'];
+  AlbumService.$inject = ['$http'];
 
-  function albumService($http){
+  function AlbumService($http){
     init();
 
     var albums = [];
@@ -20,15 +20,18 @@
 
     function init(){
       $http.get('/albums')
-           .then(function(response){
-             albums = response.data.albums;
+           .then(function(res){
+             albums = res.data.albums;
            })
            .catch(function(err){
              console.log(err);
            });
     }
 
-    function getAll(){}
+    function getAll(){
+      return albums;
+    }
+
     function getByID(index, album){}
     function create(newAlbum){}
     function updateOne(index, updatedAlbum){}

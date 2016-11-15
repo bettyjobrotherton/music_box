@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head ng-app='musicBox'>
+<html lang="en" ng-app='music-box'>
+<head>
   <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-<div ng-controller="albumController">
-
+<div ng-controller="AlbumController">
+  <header>
+    <h1>Welcome to the Music Box</h1>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+            <div ng-repeat="album in albums track by $index">
+              <div class='{{ album.isGood }}'>
+                <p>Album: {{ album.title }}</p>
+                <p>Artist(s): {{ album.artist }}</p>
+                <p>Release Date: {{ album.releaseDate || date: short }}</p>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+          <p>Filler</p>
+        </div>
+      </div>
+    </div>
+  </main>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/controllers/music_box.controller.js"></script>
 <script src="/js/services/music_box.service.js"></script>

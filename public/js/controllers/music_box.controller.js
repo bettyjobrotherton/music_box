@@ -1,12 +1,20 @@
 (function() {
 
-  angular.module('musicBox')
-         .controller('albumController', albumController);
+  angular.module('music-box')
+         .controller('AlbumController', AlbumController);
 
-  albumController.$inject = ['$scope', 'albumService'];
+  AlbumController.$inject = ['$scope', 'AlbumService'];
 
-  function albumController($scope, albumService){
-    
+  function AlbumController($scope, AlbumService){
+    $scope.albums = AlbumService.get();
+
+    $scope.$watch(function(){
+      return AlbumService.get();
+    }, function(){
+      $scope.albums = AlbumService.get();
+    });
+
+
   }
 
 }());

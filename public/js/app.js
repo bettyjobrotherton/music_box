@@ -1,5 +1,5 @@
 (function() {
 
-angular.module('musicBox', []);
+  angular.module('music-box', []);
 
 }());
