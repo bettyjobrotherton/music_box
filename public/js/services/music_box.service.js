@@ -36,7 +36,7 @@
     function getByID(index, album){
       $http.get('/albums/' + album._id)
            .then(function(res){
-            selectedAlbum = res.data.albums;
+            selectedAlbum = res.data.album;
            })
            .catch(function(err){
              console.log(err);
