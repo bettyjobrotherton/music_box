@@ -8,10 +8,10 @@ mongoose.connect(mongoURI);
 
 var port = process.env.PORT || 8080;
 
-server.use(express.static, (__dirname + '/public'));
+server.use(express.static(__dirname + '/public'));
 
 server.get('/', function(req, res){
-  response.sendFile('public/html/index.html', {root: __dirname});
+  res.sendFile('public/html/index.html', {root: __dirname});
 });
 
 server.listen(port, function(){
