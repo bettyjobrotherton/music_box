@@ -11,7 +11,7 @@
     var albums = [];
 
     return {
-      get: getAll,
+      get: getAllAlbums,
       select: getByID,
       create: create,
       update: updateOne,
@@ -20,15 +20,15 @@
 
     function init(){
       $http.get('/albums')
-           .then(function(res){
-             albums = res.data.albums;
+           .then(function(response){
+             albums = response.data.albums;
            })
            .catch(function(err){
              console.log(err);
            });
     }
 
-    function getAll(){
+    function getAllAlbums(){
       return albums;
     }
 
