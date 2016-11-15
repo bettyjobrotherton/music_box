@@ -1,7 +1,22 @@
+header {
+  text-align: center;
+}
+
+.album-list {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
 .true {
   background-color: green;
 }
 
 .false {
   background-color: red;
+}
+
+#divider {
+  border-right: 1px solid black;
+  height: inherit;
 }

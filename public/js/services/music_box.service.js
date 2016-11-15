@@ -44,15 +44,33 @@
     }
     function create(newAlbum){
       $http.post('/albums', newAlbum)
-           .then(function(res){
+           .then(function(){
              albums.push(newAlbum);
            })
            .catch(function(err){
              console.log(err);
            });
     }
-    function updateOne(index, updatedAlbum){}
-    function deleteOne(index, deletedAlbum){}
+
+    function updateOne(index, updatedAlbum){
+      $http.put('/albums/' + updatedAlbum._id, updatedAlbum)
+           .then(function(){
+             albums.splice(index, 1, updatedAlbum);
+           })
+           .catch(function(err){
+             console.log(err);
+           });
+    }
+
+    function deleteOne(index, deletedAlbum){
+      $http.delete('/albums/' + deletedAlbum._id)
+           .then(function(){
+             albums.splice(index, 1);
+           })
+           .catch(function(err){
+             console.log(err);
+           });
+    }
 
   }
 

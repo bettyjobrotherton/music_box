@@ -13,16 +13,27 @@
   <main>
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-8" id='divider'>
             <div ng-repeat="album in albums track by $index">
-              <div class='{{ album.isGood }}'>
-                <p>Album: {{ album.title }}</p>
-                <p>Artist(s): {{ album.artist }}</p>
-                <p>Release Date: {{ album.releaseDate | date: 'mediumDate' }}</p>
+              <div class='{{ album.isGood }} album-list'>
+                <div ng-hide="album.isBeingEdited">
+                  <p>Album: {{ album.title }}</p>
+                  <p>Artist(s): {{ album.artist }}</p>
+                  <p>Release Date: {{ album.releaseDate | date: 'mediumDate' }}</p>
+                  <button ng-click="editAlbum(album)" class="btn">Edit</button>
+                  <button ng-click="deleteAlbum($index, album)" class="btn">Delete</button>
+                </div>
+                <div ng-show="album.isBeingEdited">
+                  <p>Album Title: <input type="text" ng-model='album.title'></p>
+                  <p>Artist: <input type="text" ng-model='album.artist'></p>
+                  <p>Release Date: <input type="date" ng-model='album.releaseDate'></p>
+                  <p>Is the album good? <input type="radio" ng-model='album.isGood' value='true'>Yes <input type="radio" ng-model='album.isGood' value='false'> No</p>
+                  <button ng-click="updateAlbum($index, album)" class="btn">Save</button>
+                </div>
               </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div id='album-form'>
             <p>Add an album to our list:</p>
             <p>Album Title: <input type="text" ng-model='newAlbum.title' placeholder='Album Title'></p>
