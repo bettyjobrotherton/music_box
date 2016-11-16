@@ -16,14 +16,14 @@
         <div class="col-md-8" id='divider'>
             <div ng-repeat="album in albums track by $index">
               <div class='{{ album.isGood }} album-list'>
-                <div ng-hide="album.isBeingEdited">
+                <div ng-hide="album.isBeingEdited" class="animate-hide">
                   <p>Album: <a href='/albums/{{album._id}}' class='album-link'>{{ album.title }}</a></p>
                   <p>Artist(s): {{ album.artist }}</p>
                   <p>Release Date: {{ album.releaseDate | date: 'mediumDate' }}</p>
                   <button ng-click="editAlbum(album)" class="btn btn-default">Edit</button>
                   <button ng-click="deleteAlbum($index, album)" class="btn btn-danger">Delete</button>
                 </div>
-                <div ng-show="album.isBeingEdited">
+                <div ng-show="album.isBeingEdited" class='animate-hide'>
                   <p>Album Title: <input type="text" ng-model='album.title' class='form-control input'></p>
                   <p>Artist: <input type="text" ng-model='album.artist' class='form-control input'></p>
                   <p>Release Date: <input type="date" ng-model='album.releaseDate' class='form-control input'></p>

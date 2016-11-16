@@ -34,6 +34,14 @@ header {
   height: inherit;
 }
 
-#album-form {
+.animate-hide {
+  transition: all linear 1s;
+  height: auto;
+  opacity: 1;
+}
 
+.animate-hide.ng-hide {
+  transition: all linear 0.5s;
+  height: -500;
+  opacity: 0;
 }
