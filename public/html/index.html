@@ -17,18 +17,18 @@
             <div ng-repeat="album in albums track by $index">
               <div class='{{ album.isGood }} album-list'>
                 <div ng-hide="album.isBeingEdited">
-                  <p>Album: {{ album.title }}</p>
+                  <p>Album: <a href='/albums/{{album._id}}' class='album-link'>{{ album.title }}</a></p>
                   <p>Artist(s): {{ album.artist }}</p>
                   <p>Release Date: {{ album.releaseDate | date: 'mediumDate' }}</p>
-                  <button ng-click="editAlbum(album)" class="btn">Edit</button>
-                  <button ng-click="deleteAlbum($index, album)" class="btn">Delete</button>
+                  <button ng-click="editAlbum(album)" class="btn btn-default">Edit</button>
+                  <button ng-click="deleteAlbum($index, album)" class="btn btn-danger">Delete</button>
                 </div>
                 <div ng-show="album.isBeingEdited">
-                  <p>Album Title: <input type="text" ng-model='album.title'></p>
-                  <p>Artist: <input type="text" ng-model='album.artist'></p>
-                  <p>Release Date: <input type="date" ng-model='album.releaseDate'></p>
+                  <p>Album Title: <input type="text" ng-model='album.title' class='form-control input'></p>
+                  <p>Artist: <input type="text" ng-model='album.artist' class='form-control input'></p>
+                  <p>Release Date: <input type="date" ng-model='album.releaseDate' class='form-control input'></p>
                   <p>Is the album good? <input type="radio" ng-model='album.isGood' value='true'>Yes <input type="radio" ng-model='album.isGood' value='false'> No</p>
-                  <button ng-click="updateAlbum($index, album)" class="btn">Save</button>
+                  <button ng-click="updateAlbum($index, album)" class="btn btn-success">Save</button>
                 </div>
               </div>
             </div>
@@ -36,9 +36,9 @@
         <div class="col-md-4">
           <div id='album-form'>
             <p>Add an album to our list:</p>
-            <p>Album Title: <input type="text" ng-model='newAlbum.title' placeholder='Album Title'></p>
-            <p>Artist: <input type="text" ng-model='newAlbum.artist' placeholder='Artist'></p>
-            <p>Release Date: <input type="date" ng-model='newAlbum.releaseDate' placeholder="Release Date"></p>
+            <p>Album Title: <input type="text" ng-model='newAlbum.title' class='form-control input' placeholder='Album Title'></p>
+            <p>Artist: <input type="text" ng-model='newAlbum.artist' class='form-control input' placeholder='Artist'></p>
+            <p>Release Date: <input type="date" ng-model='newAlbum.releaseDate' class='form-control input' placeholder="Release Date"></p>
             <p>Is the album good? <input type="radio" ng-model='newAlbum.isGood' value='true'>Yes <input type="radio" ng-model='newAlbum.isGood' value='false'> No</p>
             <button ng-click="createAlbum(newAlbum)" class='btn'>Add</button>
           </div>
@@ -48,6 +48,7 @@
   </main>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js"></script>
 <script src="/js/app.js"></script>
 <script src="/js/controllers/music_box.controller.js"></script>
 <script src="/js/services/music_box.service.js"></script>
