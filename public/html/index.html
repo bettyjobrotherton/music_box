@@ -17,7 +17,7 @@
             <div ng-repeat="album in albums track by $index">
               <div class='{{ album.isGood }} album-list'>
                 <div ng-hide="album.isBeingEdited" class="animate-hide">
-                  <p>Album: <a href="/album-detail" ng-click='goToAlbum($index, album)' class='album-link'>{{ album.title }}</a></p>
+                  <p>Album: {{ album.title }}</p> <button ng-click="goToAlbum($index, album)" class='btn'>?</button>
                   <p>Artist(s): {{ album.artist }}</p>
                   <p>Release Date: {{ album.releaseDate | date: 'mediumDate' }}</p>
                   <button ng-click="editAlbum(album)" class="btn btn-default">Edit</button>
@@ -52,5 +52,6 @@
 <script src="/js/app.js"></script>
 <script src="/js/controllers/music_box.controller.js"></script>
 <script src="/js/services/music_box.service.js"></script>
+<!-- <script src="/js/directives/go-to-album.directive.js"></script> -->
 </body>
 </html>

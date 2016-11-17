@@ -3,9 +3,9 @@
   angular.module('music-box')
          .controller('AlbumController', AlbumController);
 
-  AlbumController.$inject = ['$scope', 'AlbumService'];
+  AlbumController.$inject = ['$scope', 'AlbumService', '$window'];
 
-  function AlbumController($scope, AlbumService){
+  function AlbumController($scope, AlbumService, $window){
     $scope.albums = AlbumService.get();
     $scope.createAlbum = createAlbum;
     $scope.editAlbum = editAlbum;
@@ -39,7 +39,9 @@
     }
 
     function goToAlbum(index, album){
-      AlbumService.getByID(index, album);
+      AlbumService.clickOne(album);
+      $window.location.assign('/album-detail');
+      debugger;
     }
 
   }

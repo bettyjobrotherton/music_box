@@ -13,7 +13,8 @@
 
     return {
       get: getAllAlbums,
-      getByID: getByID,
+      getOne: getOneAlbum,
+      clickOne: clickOne,
       select: select,
       create: create,
       update: updateOne,
@@ -34,18 +35,18 @@
       return albums;
     }
 
-    function getByID(index, album){
+    function getOneAlbum(index, album){
       $http.get('/albums/' + album._id)
            .then(function(res){
-             selectedAlbum = album;
+             selectedAlbum = res.data.album;
            })
-      // $http.get('/album-detail')
-      //      .then(function(){
-      //        return selectedAlbum;
-      //      })
            .catch(function(err){
              console.log(err);
            });
+    }
+
+    function clickOne(album){
+      selectedAlbum = album;
     }
 
     function select(){
