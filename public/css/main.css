@@ -35,13 +35,14 @@ header {
 }
 
 .animate-hide {
-  transition: all linear 1s;
+  transition: all 1s ease-in 0.5s;
   height: auto;
   opacity: 1;
 }
 
 .animate-hide.ng-hide {
-  transition: all linear 0.5s;
-  height: -500;
+  height: 0;
   opacity: 0;
+  transform: rotateY(180deg);
+  transition: all 1s ease-in;
 }
