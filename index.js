@@ -14,6 +14,10 @@ server.get('/', function(req, res){
   res.sendFile('public/html/index.html', {root: __dirname});
 });
 
+server.get('/album-detail', function(req, res){
+  res.sendFile('public/html/album-detail.html', {root: __dirname});
+});
+
 server.listen(port, function(){
   console.log('Now listening on port...', port);
 });

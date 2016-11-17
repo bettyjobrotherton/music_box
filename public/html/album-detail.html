@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app='music-box'>
+<head>
+  <title>TMB | Album Detail</title>
+</head>
+<body>
+  <div ng-controller="AlbumDetailController">
+    <p>Album: {{ selectedAlbum.title }}</a></p>
+    <p>Artist(s): {{ selectedAlbum.artist }}</p>
+    <p>Release Date: {{ selectedAlbum.releaseDate | date: 'mediumDate' }}</p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/controllers/music_box.controller.js"></script>
+  <script src="/js/services/music_box.service.js"></script>
+</body>
+</html>

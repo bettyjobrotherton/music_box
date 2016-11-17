@@ -13,7 +13,8 @@
 
     return {
       get: getAllAlbums,
-      select: getByID,
+      getByID: getByID,
+      select: select,
       create: create,
       update: updateOne,
       delete: deleteOne
@@ -36,12 +37,21 @@
     function getByID(index, album){
       $http.get('/albums/' + album._id)
            .then(function(res){
-            selectedAlbum = res.data.album;
+             selectedAlbum = album;
            })
+      // $http.get('/album-detail')
+      //      .then(function(){
+      //        return selectedAlbum;
+      //      })
            .catch(function(err){
              console.log(err);
            });
     }
+
+    function select(){
+      return selectedAlbum;
+    }
+
     function create(newAlbum){
       $http.post('/albums', newAlbum)
            .then(function(){

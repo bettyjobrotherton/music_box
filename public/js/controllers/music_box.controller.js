@@ -11,6 +11,7 @@
     $scope.editAlbum = editAlbum;
     $scope.updateAlbum = updateAlbum;
     $scope.deleteAlbum = deleteAlbum;
+    $scope.goToAlbum = goToAlbum;
 
     $scope.$watch(function(){
       return AlbumService.get();
@@ -20,6 +21,7 @@
 
     function createAlbum(newAlbum){
       AlbumService.create(newAlbum);
+      AlbumService.get();
       $scope.newAlbum = [];
     }
 
@@ -34,6 +36,10 @@
 
     function deleteAlbum(index, album){
       AlbumService.delete(index, album);
+    }
+
+    function goToAlbum(index, album){
+      AlbumService.getByID(index, album);
     }
 
   }
