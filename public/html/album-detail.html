@@ -5,16 +5,17 @@
 </head>
 <body>
   <div ng-controller="AlbumDetailController">
-    <p>Album: {{ selectedAlbum.title }}</a></p>
-    <p>Artist(s): {{ selectedAlbum.artist }}</p>
-    <p>Release Date: {{ selectedAlbum.releaseDate | date: 'mediumDate' }}</p>
+    <p>Album: {{ album.title }}</a></p>
+    <p>Artist(s): {{ album.artist }}</p>
+    <p>Release Date: {{ album.releaseDate | date: 'mediumDate' }}</p>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js"></script>
   <script src="/js/app.js"></script>
+  <script src="/js/controllers/music_box.controller.js"></script>
   <script src="/js/controllers/album-detail.controller.js"></script>
   <script src="/js/services/music_box.service.js"></script>
-  <!-- <script src="/js/directives/go-to-album.directive.js"></script> -->
+  <script src="/js/directives/go-to-album.directive.js"></script>
 </body>
 </html>

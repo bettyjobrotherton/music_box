@@ -9,7 +9,7 @@
     init();
 
     var albums = [];
-    var selectedAlbum;
+    var selectedAlbum = [];
 
     return {
       get: getAllAlbums,
@@ -36,9 +36,11 @@
     }
 
     function getOneAlbum(index, album){
+      selectedAlbum = album;
+
       $http.get('/albums/' + album._id)
            .then(function(res){
-             selectedAlbum = res.data.album;
+             console.log(res);
            })
            .catch(function(err){
              console.log(err);

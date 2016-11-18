@@ -40,8 +40,10 @@
 
     function goToAlbum(index, album){
       AlbumService.clickOne(album);
+      // AlbumService.getOne(index, album);
       $window.location.assign('/album-detail');
-      debugger;
+      // AlbumService.select();
+      // debugger;
     }
 
   }

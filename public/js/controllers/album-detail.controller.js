@@ -6,7 +6,7 @@
   AlbumDetailController.$inject = ['$scope', 'AlbumService'];
 
   function AlbumDetailController($scope, AlbumService){
-    $scope.selectedAlbum = AlbumService.select();
+    $scope.album = AlbumService.select();
 
   }
 
