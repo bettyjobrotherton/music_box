@@ -9,11 +9,12 @@
     init();
 
     var albums = [];
-    var selectedAlbum;
+    var selectedAlbum = [];
 
     return {
       get: getAllAlbums,
-      select: getByID,
+      getOne: getByID,
+      select: select,
       create: create,
       update: updateOne,
       delete: deleteOne
@@ -42,6 +43,11 @@
              console.log(err);
            });
     }
+
+    function select(){
+      return selectedAlbum;
+    }
+
     function create(newAlbum){
       $http.post('/albums', newAlbum)
            .then(function(){
